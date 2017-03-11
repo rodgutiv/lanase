@@ -15,6 +15,9 @@ class CreateSynonymsTable extends Migration
     {
         Schema::create('synonyms', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('taxonomy_id')->unsigned();
+            $table->string('synonym');
+            $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +29,9 @@ class CreateSynonymsTable extends Migration
      */
     public function down()
     {
+        Schema::table('synonyms', function (Blueprint $table) {
+            $table->dropForeign('synonyms_taxonomy_id_foreign');
+        });
         Schema::dropIfExists('synonyms');
     }
 }

@@ -15,6 +15,10 @@ class CreateLiteraturesTable extends Migration
     {
         Schema::create('literatures', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('citation_id')->unsigned();
+            $table->string('type_2');
+            $table->string('remarks');
+            $table->foreign('citation_id')->references('id')->on('citations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +30,9 @@ class CreateLiteraturesTable extends Migration
      */
     public function down()
     {
+        Schema::table('literatures', function (Blueprint $table) {
+            $table->dropForeign('literatures_citation_id_foreign');
+        });
         Schema::dropIfExists('literatures');
     }
 }

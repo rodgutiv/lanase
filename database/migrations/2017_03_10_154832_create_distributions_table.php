@@ -15,7 +15,18 @@ class CreateDistributionsTable extends Migration
     {
         Schema::create('distributions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('specimen_id')->unsigned();
+            $table->decimal('latitude');
+            $table->decimal('longitude');
+            $table->decimal('altitude');
+            $table->text('site');
+            $table->date('date');
+            $table->string('country');
+            $table->string('region');
+            $table->string('locality');
+            $table->string('sub_locality');
             $table->timestamps();
+            $table->foreign('specimen_id')->references('id')->on('specimens')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -26,6 +37,9 @@ class CreateDistributionsTable extends Migration
      */
     public function down()
     {
+        Schema::table('distributions', function (Blueprint $table) {
+            $table->dropForeign('distributions_specimen_id_foreign');
+        });
         Schema::dropIfExists('distributions');
     }
 }

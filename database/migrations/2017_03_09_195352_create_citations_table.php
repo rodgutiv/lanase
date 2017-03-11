@@ -46,7 +46,11 @@ class CreateCitationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citations');
+        Schema::table('vernacular_name', function (Blueprint $table) {
+            $table->dropForeign('vernacular_name_taxonomy_id_foreign');
+            $table->dropForeign('vernacular_name_citation_id_foreign');
+        });
         Schema::dropIfExists('vernacular_name');
+        Schema::dropIfExists('citations');
     }
 }

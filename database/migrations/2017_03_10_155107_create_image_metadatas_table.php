@@ -15,6 +15,18 @@ class CreateImageMetadatasTable extends Migration
     {
         Schema::create('image_metadatas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('image_id')->unsigned();
+            $table->integer('resolution_units');
+            $table->integer('width');
+            $table->integer('heigth');
+            $table->integer('latitude');
+            $table->integer('longitude');
+            $table->string('device_name');
+            $table->date('date');
+            $table->integer('size');
+            $table->string('compress_scheme');
+            $table->boolean('is_color');
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +38,9 @@ class CreateImageMetadatasTable extends Migration
      */
     public function down()
     {
+        Schema::table('image_metadatas', function (Blueprint $table) {
+            $table->dropForeign('image_metadatas_image_id_foreign');
+        });
         Schema::dropIfExists('image_metadatas');
     }
 }

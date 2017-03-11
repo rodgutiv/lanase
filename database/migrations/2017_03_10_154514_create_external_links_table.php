@@ -15,6 +15,14 @@ class CreateExternalLinksTable extends Migration
     {
         Schema::create('external_links', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('taxonomy_id')->unsigned();
+            $table->string('provider_name');
+            $table->string('provider_abbr');
+            $table->string('url');
+            $table->string('subject');
+            $table->string('category');
+            $table->string('attribute');
+            $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +34,9 @@ class CreateExternalLinksTable extends Migration
      */
     public function down()
     {
+        Schema::table('external_links', function (Blueprint $table) {
+            $table->dropForeign('external_links_taxonomy_id_foreign');
+        });
         Schema::dropIfExists('external_links');
     }
 }

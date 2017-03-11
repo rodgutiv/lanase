@@ -15,7 +15,7 @@ class CreateCollectsTable extends Migration
     {
         Schema::create('collects', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps('date');
+            $table->timestamp('date')->nullable();
             $table->integer('no_samples');
             $table->timestamps();
         });

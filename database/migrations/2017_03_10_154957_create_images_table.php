@@ -15,6 +15,9 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('specimen_id')->unsigned();
+            $table->string('name');
+            $table->foreign('specimen_id')->references('id')->on('specimens')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +29,9 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropForeign('images_specimen_id_foreign');
+        });
         Schema::dropIfExists('images');
     }
 }

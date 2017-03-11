@@ -16,7 +16,7 @@ class CreateInterestFieldsTable extends Migration
         Schema::create('interest_fields', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('interest_tables_id')->unsigned();
-            $table->foreign('interes_tables_id')->references('id')->on('interest_tables')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('interest_tables_id')->references('id')->on('interest_tables')->onDelete('cascade')->onUpdate('cascade');
             $table->string('field_name', 50);
             $table->string('equivalent_name');
             $table->timestamps();
@@ -30,6 +30,9 @@ class CreateInterestFieldsTable extends Migration
      */
     public function down()
     {
+        Schema::table('interest_fields', function (Blueprint $table) {
+            $table->dropForeign('interest_fields_interest_tables_id_foreign');
+        });
         Schema::dropIfExists('interest_fields');
     }
 }

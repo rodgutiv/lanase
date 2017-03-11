@@ -27,8 +27,8 @@ class CreateMetricsTable extends Migration
             $table->string('count_vernacular_by_lang');
             $table->string('count_extensions');
             $table->string('count_other');
-            $table->timestamps('downloaded');
-            $table->timestamps('created');
+            $table->timestamp('downloaded')->nullable();
+            $table->timestamp('created')->nullable();
             $table->boolean('latest');
             $table->string('count_by_issue');
             $table->string('count_by_constituent');
