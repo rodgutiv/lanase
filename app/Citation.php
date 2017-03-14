@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Citation extends Model
 {
     //
+    protected $table= "citations";
+
+    protected $fillable = [];
 }
