@@ -9,5 +9,5 @@ class Citation extends Model
     //
     protected $table= "citations";
 
-    protected $fillable = [];
+    protected $fillable = ['citation','link','identifier'];
 }
