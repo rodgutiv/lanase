@@ -16,7 +16,7 @@ class CreateIdentifiersTable extends Migration
         Schema::create('identifiers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('identifier');
-            $table->string('tile');
+            $table->string('title');
             $table->timestamps();
         });
     }

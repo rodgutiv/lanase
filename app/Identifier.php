@@ -9,5 +9,9 @@ class Identifier extends Model
     //
     protected $table = "identifiers";
 
-    protected $fillable = ['identifier', 'tile'];
+    protected $fillable = ['identifier', 'title'];
+
+    public function specimen() {
+    	return $this->hasOne('App\Specimen');
+    }
 }

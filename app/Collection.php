@@ -10,4 +10,8 @@ class Collection extends Model
     protected $table = "collections";
 
     protected $fillable = ['country', 'region', 'locality'];
+
+    public function specimens() {
+    	return $this->hasMany('App\Specimen');
+    }
 }

@@ -10,4 +10,8 @@ class Sequence extends Model
     protected $table = "sequences";
 
     protected $fillable = ['path', 'desc_2'];
+
+    public function specimens() {
+    	return $this->hasMany('App\Specimen');
+    }
 }

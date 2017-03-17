@@ -27,5 +27,19 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+    public function projects(){
+        return $this->belongsToMany('App\Project')->withPivot('order_2', 'responsible')->withTimestamps();
+    }
+
+    public function sessions(){
+        return $this->hasMany('App\Session');
+    }
+
+    public function sample(){
+        return $this->hasOne('App\Sample');
+    }
+
+    public function specimens(){
+        return $this->hasMany('App\Specimen');
+    }
 }

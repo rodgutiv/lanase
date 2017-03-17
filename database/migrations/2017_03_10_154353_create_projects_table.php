@@ -26,7 +26,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('projects_user', function (Blueprint $table) {
+        Schema::create('project_user', function (Blueprint $table) {
             $table->text('order_2');
             $table->integer('user_id')->unsigned();
             $table->integer('project_id')->unsigned();
@@ -47,11 +47,11 @@ class CreateProjectsTable extends Migration
         Schema::table('projects', function (Blueprint $table) {
             $table->dropForeign('projects_research_area_id_foreign');
         });
-        Schema::table('projects_user', function (Blueprint $table) {
+        Schema::table('project_user', function (Blueprint $table) {
             $table->dropForeign('projects_user_user_id_foreign');
             $table->dropForeign('projects_user_project_id_foreign');
         });
-        Schema::dropIfExists('projects_user');
+        Schema::dropIfExists('project_user');
         Schema::dropIfExists('projects');
     }
 }
