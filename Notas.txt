@@ -1,0 +1,19 @@
+Crear el controlador
+
+	php artisan make:controller <nombre del controller> --resource
+
+Agregar las rutas del controlador 
+
+	Route::resource('<nombre de la ruta>', '<Controller a usar>');
+
+Verificar rutas
+
+	php artisan route:list
+
+Crear las vistas
+
+-Dependiendo del metodo a usar definir si regresar vista o guardar datos
+
+-En las vistas con formularios definir la ruta que corresponde del controller en el action
+
+-Los atributos name de los input deben de llamarse igual que en la base de datos

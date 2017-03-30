@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
+Route::group(['middleware' => 'auth'], function() {
+    //
+	Route::get('/', function () {
+	    return view('admin.index');
+	});
 });
+
+Route::resource('distribution', 'DistributionController');
+
+Route::resource('taxonomic', 'TaxonomicClassController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
