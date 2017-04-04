@@ -3,10 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lanase |  @yield('title','Inicio') </title>
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/materialize.min.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
+
+	{!! Html::style('http://fonts.googleapis.com/icon?family=Material+Icons') !!}
+	{!! Html::style('css/materialize.min.css') !!}
+	{!! Html::style('css/font-awesome.css') !!}
+	{!! Html::style('css/style.css') !!}	
 </head>
 <body>
 	
@@ -19,14 +20,17 @@
 		@yield('content')
 	</main>
 
-	<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-	<script src="{{ asset('js/materialize.min.js') }}"></script>
-	<script src="{{ asset('js/scripts.js') }}"></script>
-
+	{!! Html::script('js/jquery-3.1.1.min.js') !!}
+	{!! Html::script('js/materialize.min.js') !!}
+	{!! Html::script('js/scripts.js') !!}
+	<script type="text/javascript">
+		
 	  @if($errors)
 	    @foreach($errors->all() as $error)
-	      Materialize.toast('{{ $error }}', 4000);
+	      Materialize.toast('{{ $error }}', 4000, 'red white-text');
 	    @endforeach
 	  @endif
+
+	</script>
 </body>
 </html>

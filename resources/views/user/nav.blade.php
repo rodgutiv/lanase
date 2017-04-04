@@ -12,21 +12,13 @@
         {{ csrf_field() }}
     </form> --}}
 </ul>
-<!-- Usuarios -->
-<ul id="users-options" class="dropdown-content">
-	<li><a href="">Todos los Usuarios</a></li>
-	<li><a href="">Agregar Nuevo</a></li>
-	<li class="divider"></li>
-	<li><a href="">Roles</a></li>
-</ul>
+
 <nav class="cyan">
 	<div class="nav-wrapper container">
 		<a href="" class="brand-logo">Inicio</a>
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="">Dashboard</a></li>
-
-			<li><a class="dropdown-button" href="#!" data-activates="users-options">Usuarios<i class="material-icons right">arrow_drop_down</i></a></li>
 			<!-- Dropdown Trigger -->
 			<li><a class="dropdown-button" href="#!" data-activates="perfil">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
 

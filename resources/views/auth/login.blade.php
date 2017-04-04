@@ -6,41 +6,42 @@
         
     <div class="row mt-150">
 
-            {!! Form::open(['url' => 'login', 'method' => 'POST', 'class' => 'col s5 col-center', 'style' => 'padding:30px' ]) !!}
+            {!! Form::open(['url' => 'login', 'method' => 'POST', 'class' => 'col s6 col-center', 'style' => 'padding:30px' ]) !!}
+
+                <div class="row">
+                    
+                    <div class="input-field col s12">
+                        
+                        {!! Form::label('email', 'Email') !!}
+                        {!! Form::email('email', null, ['class' => 'validate', 'required']) !!}
+
+                    </div>
+
+                    <div class="input-field col s12">
+                        
+                        {!! Form::label('password', 'Password') !!}
+                        {!! Form::password('password', null, ['class' => 'validate', 'required']) !!}
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col m12 col-center mt-15">
+                    
+                        <div class="col s6">
+                            <a href="">Olvide mi contraseña</a>
+                        </div> 
+                        <div class="col s6">
+                            {!! Form::submit('Log in', ['class' => 'btn btn-block btn-block-large waves-effect waves-light']) !!}
+                        </div>
+
+                    </div>
+
+                </div>
 
             {!! Form::close() !!}
-            
-            <form action="" class="col s5 col-center" id="form" method="POST" style="padding: 30px">
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" name="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                <!-- </div>
-                <div class="row"> -->
-                    <div class="input-field col s12">
-                        <input id="password" type="password" name="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-
-                <div class="col m12 col-center mt-15">
-                    
-                    <div class="col s6">
-                        <a href="">Olvide mi contraseña</a>
-                    </div> 
-                    <div class="col s6">
-                        <button class="btn waves-light">INGRESAR</button>
-                    </div>
-
-                </div>
-
-                <div class="clearfix"></div>
-
-            </form>
-
-
 
     </div>
 
@@ -56,78 +57,4 @@
 
 </div>
 
-@endsection
-@section('scripts')
-  @if($errors)
-    @foreach($errors->all() as $error)
-      Materialize.toast('{{ $error }}', 4000);
-    @endforeach
-  @endif
-@endsection
-
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

@@ -42,4 +42,13 @@ class User extends Authenticatable
     public function specimens(){
         return $this->hasMany('App\Specimen');
     }
+
+    public function isAdmin() {
+        return $this->role === 1;
+    }
+
+    public function isUser() {
+        return $this->role === 2;
+    }
+
 }
