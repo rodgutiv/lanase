@@ -11,19 +11,23 @@
 |
 */
 
+
+
 Route::get('/', function () {
-	return view('auth.login');
+	if(\Auth::guest()){
+		return view('auth.login');		
+	}else{		
+		return redirect('dashboard');
+	}
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
+
+
+Route::group(['middleware' => 'auth'], function() {
     //
-	Route::get('/', ['uses' => 'AdminController@index']);
+	Route::get('/dashboard', ['uses' => 'MainController@getIndex']);
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user']], function() {
-    //
-	Route::get('/', ['uses' => 'UserController@index']);
-});
 
 Route::resource('distribution', 'DistributionController');
 

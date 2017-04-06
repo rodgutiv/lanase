@@ -1,8 +1,12 @@
 @extends('main')
-@section('title','Distribution')
+@section('title','Dashboard')
 
 @section('nav')
-@include('admin.nav')
+@if(Auth::user()->isAdmin())
+	@include('layouts.nav-admin')
+@else
+	@include('layouts.nav-user')
+@endif
 @endsection
 
 @section('content')
@@ -118,5 +122,9 @@
 	{!! Form::submit('Guardar', ['class'=>'btn btn-large btn-block btn-block-large waves-effect waves-light']) !!}
 </div>
 {!! Form::close() !!}
+
+@endsection
+
+@section('scripts')
 
 @endsection

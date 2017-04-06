@@ -26,7 +26,7 @@ class TaxonomicClassController extends Controller
     public function create()
     {
         //
-        return view('taxonomic.create');
+        return view('modules.taxonomic.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class TaxonomicClassController extends Controller
         //
         $taxonomic = new Taxonomic_Classification($request->all());
         $taxonomic->save();
-        return redirect()->route('taxonomic.index');
+        return redirect()->route('modules.taxonomic.index');
     }
 
     /**
