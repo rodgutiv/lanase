@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamp('joined')->nullable();
-            $table->smallInteger('status');
+            $table->smallInteger('status')->default(1);
             $table->smallInteger('role');
             $table->rememberToken();
             $table->timestamps();

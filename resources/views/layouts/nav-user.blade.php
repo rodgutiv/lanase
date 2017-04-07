@@ -15,10 +15,11 @@
 
 <nav class="cyan">
 	<div class="nav-wrapper container">
-		<a href="" class="brand-logo">Inicio</a>
+		<a href="{{ url('/') }}" class="brand-logo">Inicio</a>
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="">Dashboard</a></li>
+			<li><a href="{{ url('/') }}">Dashboard</a></li>
+			<li><a href="{{ route('researcharea.index') }}">Investigación</a></li>
 			<!-- Dropdown Trigger -->
 			<li><a class="dropdown-button" href="#!" data-activates="perfil">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
 

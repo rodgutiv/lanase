@@ -27,6 +27,12 @@ Route::group(['middleware' => 'auth'], function() {
     //
 	Route::get('/dashboard', ['uses' => 'MainController@getIndex']);
 	Route::resource('users', 'UserController');
+	Route::post('users/getUsers', [
+		'uses'	=> 'UserController@getUsers',
+		'as'	=> 'users.getUsers'
+		]);
+	Route::resource('researcharea', 'ResearchAreaController');
+	Route::resource('projects', 'ProjectsController');
 });
 
 

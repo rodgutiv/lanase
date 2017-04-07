@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Laracasts\Flash\Flash;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('modules.users.index');
+        $users = User::all();
+        return view('modules.users.index')->with('users', $users);
     }
 
     /**
@@ -24,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        // return view();
+        return view('modules.users.create');
     }
 
     /**
@@ -33,9 +41,18 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         //
+        // dd($request->all());
+        $user = new User($request->all());
+        $user->password = bcrypt($user->password);
+        $user->status = 1;
+        $user->save();
+
+        Flash::overlay('Se ha registrado '.$user->name.' de forma exitosa.', 'Alta exitosa');
+
+        return redirect()->route('users.create');
     }
 
     /**
@@ -81,5 +98,60 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function getUsers(Request $req)
+    {
+        $type = $req->input('type');
+
+        switch($type){
+            case "all":
+                $res = User::all();
+                break;
+            case "admin":
+                $res = User::where('role', 1)->get();
+                break;
+            case "user":
+                $res = User::where('role', 2)->get();
+                break;
+        }
+
+        // dd($res);
+
+        $str = "";
+
+        foreach ($res as $user) {
+            $str .= "<tr><td>".$user->name."</td><td>".$user->email."</td><td>";
+
+            if($user->status == 1){
+                $str .= "<span class='badge1 green white-text'>Activo</span>"; 
+            }else{ 
+                $str .= "<span class='badge1 grey white-text'>Inactivo</span>";
+            }
+
+            $str .="</td><td>";
+
+            if($user->role == 1){
+                $str .= "<span class='badge1 teal white-text'>Admin</span>"; 
+            }else{ 
+                $str .= "<span class='badge1 blue white-text'>User</span>";
+            }
+
+            $str .= "<td>
+                        <a href='#!'><i class='material-icons brown-text'>receipt</i></a>
+                        <a href='#!'><i class='material-icons teal-text'>edit</i></a>
+                        <a href='#!'><i class='material-icons red-text'>delete</i></a>
+                    </td>";
+        }
+
+        if($str == ""){
+            $str = "Sin resultados";
+        }
+
+        return $str;
+        // return response()->json([
+
+        // ]);
     }
 }
