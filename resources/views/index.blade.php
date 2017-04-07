@@ -20,7 +20,7 @@
 	@if(Auth::user()->isAdmin())
 	<div class="col s6 z-depth-2 nopadding">
 		<div class="panel-heading teal">
-			<h6><a href="users.php" class="white-text">Usuarios</a></h6>
+			<h6><a href="{{ route('users.index') }}" class="white-text">Usuarios</a></h6>
 		</div>
 		<div class="panel-body">
 			<ul class="collection noborder">

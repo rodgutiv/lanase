@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function() {
     //
 	Route::get('/dashboard', ['uses' => 'MainController@getIndex']);
+	Route::resource('users', 'UserController');
 });
 
 

@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //return view('user.index');
+        return view('modules.users.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view()
+        // return view();
     }
 
     /**
