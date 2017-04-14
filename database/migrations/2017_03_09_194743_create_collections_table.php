@@ -17,7 +17,8 @@ class CreateCollectionsTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('region');
-            $table->string('locality');
+            $table->string('locality')->nullable();
+            $table->string('sample_type')->nullable();
             $table->timestamps();
         });
     }

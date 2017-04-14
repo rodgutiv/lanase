@@ -17,11 +17,11 @@ class CreateExternalLinksTable extends Migration
             $table->increments('id');
             $table->integer('taxonomy_id')->unsigned();
             $table->string('provider_name');
-            $table->string('provider_abbr');
+            $table->string('provider_abbr')->nullable();
             $table->string('url');
-            $table->string('subject');
-            $table->string('category');
-            $table->string('attribute');
+            $table->string('subject')->nullable();
+            $table->string('category')->nullable();
+            $table->string('attribute')->nullable();
             $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

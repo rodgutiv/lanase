@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('title_es');
             $table->string('title');
             $table->string('abstract_es');
-            $table->string('abstract');
+            $table->string('abstract')->nullable();
             $table->string('galleryfolder');
             $table->integer('display');
             $table->foreign('research_area_id')->references('id')->on('research_areas')->onDelete('cascade')->onUpdate('cascade');

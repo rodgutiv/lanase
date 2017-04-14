@@ -16,8 +16,8 @@ class CreateResearchAreasTable extends Migration
         Schema::create('research_areas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title_es');
-            $table->string('title');
-            $table->string('image');
+            $table->string('title')->nullable();
+            $table->string('image')->nullable();
             $table->integer('display');
             $table->timestamps();
         });

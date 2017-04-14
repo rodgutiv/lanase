@@ -24,14 +24,14 @@ class CreateMetadatasTable extends Migration
             $table->date('date');
             $table->string('language');
             $table->string('resource_type');
-            $table->string('alternate_identifier');
+            $table->string('alternate_identifier')->nullable();
             $table->string('related_identifier');
-            $table->decimal('size');
-            $table->string('format');
-            $table->string('version');
+            $table->decimal('size')->nullable();
+            $table->string('format')->nullable();
+            $table->string('version')->nullable();
             $table->string('rights');
             $table->string('description');
-            $table->string('geolocation');
+            $table->string('geolocation')->nullable();
             $table->timestamps();
         });
     }

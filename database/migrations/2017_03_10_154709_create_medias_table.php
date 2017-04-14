@@ -25,7 +25,7 @@ class CreateMediasTable extends Migration
             $table->string('audience');
             $table->timestamp('created')->nullable();
             $table->string('creator');
-            $table->string('contributor');
+            $table->string('contributor')->nullable();
             $table->string('publisher');
             $table->string('license');
             $table->string('rights_holder');

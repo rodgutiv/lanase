@@ -18,13 +18,13 @@ class CreateDistributionsTable extends Migration
             $table->integer('specimen_id')->unsigned();
             $table->decimal('latitude');
             $table->decimal('longitude');
-            $table->decimal('altitude');
-            $table->text('site');
-            $table->date('date');
+            $table->decimal('altitude')->nullable();
+            $table->text('site')->nullable();
+            $table->date('date')->nullable();
             $table->string('country');
             $table->string('region');
-            $table->string('locality');
-            $table->string('sub_locality');
+            $table->string('locality')->nullable();
+            $table->string('sub_locality')->nullable();
             $table->timestamps();
             $table->foreign('specimen_id')->references('id')->on('specimens')->onDelete('cascade')->onUpdate('cascade');
         });

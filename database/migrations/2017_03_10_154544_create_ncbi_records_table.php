@@ -17,8 +17,8 @@ class CreateNcbiRecordsTable extends Migration
             $table->increments('id');
             $table->integer('taxonomy_id')->unsigned();
             $table->string('record_name');
-            $table->string('direct_links');
-            $table->string('subtree_links');
+            $table->string('direct_links')->nullable();
+            $table->string('subtree_links')->nullable();
             $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
