@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Research_area;
 use Laracasts\Flash\Flash;
 
@@ -48,6 +49,29 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         //
+        $project = new Project($request->all());
+        $project->galleryfolder = "";
+
+        DB::beginTransaction();
+
+        try {
+
+            $project->save();
+            // $area = $request->research_area_id;
+            if($request->has('user_id')){
+                $user_id = $request->user_id;
+                $project->users()->attach($user_id, ['responsible' => 1, 'order_2' => ""]);
+            }
+
+        DB::commit();
+        Flash::overlay('Se ha registrado correctamente el proyecto: '.$project->title_es, 'Alta exitosa');
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Flash::overlay('Ha ocurrido un error: '.$e, 'Error');
+        }        
+        
+        return redirect()->route('projects.create');
     }
 
     /**

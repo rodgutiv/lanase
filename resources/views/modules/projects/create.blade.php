@@ -55,7 +55,7 @@
 				</div>
 				<div class="input-field col s12 m4">
 					
-					{!! Form::select('user_id', $users, null, ['class' => 'select-dropdown', 'required', 'id' => 'user_id', 'placeholder' => 'Seleccione una responsable']) !!}
+					{!! Form::select('user_id', $users, null, ['class' => 'select-dropdown', 'required', 'id' => 'user_id', 'placeholder' => 'Seleccione un responsable']) !!}
 				</div>
 			</div>
 			<div class="input-field">

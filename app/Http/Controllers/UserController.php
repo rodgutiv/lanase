@@ -47,10 +47,12 @@ class UserController extends Controller
         // dd($request->all());
         $user = new User($request->all());
         $user->password = bcrypt($user->password);
-        $user->status = 1;
-        $user->save();
-
-        Flash::overlay('Se ha registrado '.$user->name.' de forma exitosa.', 'Alta exitosa');
+        // $user->status = 1;
+        if($user->save()){
+            Flash::overlay('Se ha registrado '.$user->name.' de forma exitosa.', 'Alta exitosa');            
+        }else{
+            Flash::overlay('Ha ocurrido un problema al registrar '.$user->name, 'Error');
+        }
 
         return redirect()->route('users.create');
     }

@@ -23,7 +23,8 @@
 						<tr>
 							<th>Id</th>
 							<th>Nombre (es)</th>
-							<th>Nombre (en)</th>
+							<th>Research Area</th>
+							<th>Responsable</th>
 							<th>Display</th>
 							<th>Opciones</th>
 						</tr>
@@ -33,7 +34,14 @@
 						<tr>
 							<td>{{ $project->id }}</td>
 							<td>{{ $project->title_es }}</td>
-							<td>{{ $project->title }}</td>						
+							<td>{{ $project->research_area->title_es }}</td>					
+							<td>
+								@foreach($project->users as $user)
+									@if($user->pivot->responsible == 1)
+										{{ $user->name }}
+									@endif
+								@endforeach
+							</td>					
 							<td>
 								@if( $project->display == 1 )
 								<span class='badge1 teal white-text'>Si</span>
