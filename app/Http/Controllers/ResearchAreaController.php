@@ -22,7 +22,7 @@ class ResearchAreaController extends Controller
     {
         //
         $areas = Research_Area::all();
-        return view('modules.researcharea.index')->with('areas', $areas);
+        return view('panel.researcharea.index')->with('areas', $areas);
     }
 
     /**
@@ -33,7 +33,7 @@ class ResearchAreaController extends Controller
     public function create()
     {
         //
-        return view('modules.researcharea.create');
+        return view('panel.researcharea.create');
     }
 
     /**

@@ -20,7 +20,7 @@ class ProjectsController extends Controller
     {
         //
         $projects = Project::all();
-        return view('modules.projects.index')->with('projects', $projects);
+        return view('panel.projects.index')->with('projects', $projects);
     }
 
     /**
@@ -34,7 +34,7 @@ class ProjectsController extends Controller
         $areas = Research_Area::all()->pluck('title_es', 'id');
         $users = User::all()->pluck('name', 'id');
 
-        return view('modules.projects.create')->with([
+        return view('panel.projects.create')->with([
                 'researchareas'  => $areas,
                 'users'     => $users
             ]);

@@ -1,4 +1,4 @@
-@extends('main')
+@extends('panel.main')
 @section('title','Distribution')
 
 @section('nav')

@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('modules.users.index')->with('users', $users);
+        return view('panel.users.index')->with('users', $users);
     }
 
     /**
@@ -32,7 +32,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('modules.users.create');
+        return view('panel.users.create');
     }
 
     /**

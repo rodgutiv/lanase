@@ -7,7 +7,7 @@
 	{!! Html::style('http://fonts.googleapis.com/icon?family=Material+Icons') !!}
 	{!! Html::style('css/materialize.min.css') !!}
 	{!! Html::style('css/font-awesome.css') !!}
-	{!! Html::style('css/style.css') !!}	
+	{!! Html::style('css/main.css') !!}	
 </head>
 <body>
 	

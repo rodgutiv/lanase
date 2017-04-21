@@ -16,10 +16,10 @@ class MainController extends Controller
 	    	$users['activos'] = User::where('status', 1)->count();
 	    	$users['inactivos'] = $users['total'] - $users['activos'];
 
-	    	return view('index')->with('users', $users);
+	    	return view('panel.index')->with('users', $users);
     	}
 
-    	return view('index');
+    	return view('panel.index');
 
     }
 }

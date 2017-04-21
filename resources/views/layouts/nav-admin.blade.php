@@ -31,10 +31,10 @@
 </ul>
 <nav class="cyan">
 	<div class="nav-wrapper container">
-		<a href="{{ url('/') }}" class="brand-logo">Inicio</a>
+		<a href="{{ url('/panel/dashboard') }}" class="brand-logo">Inicio</a>
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="{{ url('/') }}">Dashboard</a></li>
+			<li><a href="{{ url('/panel/dashboard') }}">Dashboard</a></li>
 
 			<li><a class="dropdown-button" href="#!" data-activates="users-options">Usuarios<i class="material-icons right">arrow_drop_down</i></a></li>
 			<li><a class="dropdown-button" href="#!" data-activates="research-options">Investigación<i class="material-icons right">arrow_drop_down</i></a></li>

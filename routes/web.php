@@ -14,16 +14,17 @@
 
 
 Route::get('/', function () {
-	if(\Auth::guest()){
-		return view('auth.login');		
-	}else{		
-		return redirect('dashboard');
-	}
+	// if(\Auth::guest()){
+	// 	return view('auth.login');		
+	// }else{		
+	// 	return redirect('dashboard');
+	// }
+	return view('site.index');
 });
 
 
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
     //
 	Route::get('/dashboard', ['uses' => 'MainController@getIndex']);
 	Route::resource('users', 'UserController');
