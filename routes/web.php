@@ -22,6 +22,10 @@ Route::get('/', function () {
 	return view('site.index');
 });
 
+Route::get('/investigadores', function() {
+    //
+    return view('site.investigadores');
+})->name('investigadores');
 
 
 Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
@@ -41,6 +45,9 @@ Route::resource('distribution', 'DistributionController');
 
 Route::resource('taxonomic', 'TaxonomicClassController');
 
-Auth::routes();
+// Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Route::get('/home', 'HomeController@index');

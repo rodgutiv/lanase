@@ -14,7 +14,7 @@ class CreateTaxonomicClassificationsTable extends Migration
     public function up()
     {
         Schema::create('taxonomic_classifications', function (Blueprint $table) {
-            $table->integer('id')->unique()->primary();
+            $table->integer('id')->unsigned()->unique()->primary();
             $table->string('scientific_name');
             $table->string('canonic_name')->nullable();
             $table->string('infra_generic')->nullable();

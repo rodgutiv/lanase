@@ -41,7 +41,7 @@
 						</a>
 						<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 						<ul id="nav-mobile" class="right hide-on-med-and-down">
-							<li><a href="{{ route('researcharea.index') }}">Investigación</a></li>
+							<li><a href="{{ route('investigadores') }}">Investigadores</a></li>
 							@if(Auth::guest())
 								<li><a href="{{ url('/login') }}">Login</a></li>
 							@else

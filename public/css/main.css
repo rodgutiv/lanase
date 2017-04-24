@@ -129,6 +129,21 @@ body {
     padding: 5px 10px;
 }
 
+.container {
+    width: 92%;
+    max-width: 1280px;
+}
+
+.card h4 {
+    /*white-space: pre-line;    */
+    margin-bottom: 5PX;
+}
+
+.card p{
+    color: #AAA;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
 /*************************
 * Margins
 *************************/
@@ -154,6 +169,10 @@ body {
 
 .mt-150 {
     margin-top: 150px;
+}
+
+.mb-0 {
+    margin-bottom: 0!important;
 }
 
 .mb-30 {
@@ -205,12 +224,19 @@ body {
 .p-1 {
     padding: 0.75rem;
 }
+.p-1rem{
+    padding: 1rem!important;
+}
 .pt-15 {
     padding-top: 15px;
 }
 .plr-1{
     padding-left: 3px!important;
     padding-right: 3px!important;
+}
+
+.pb-15 {
+    padding-bottom: 15px!important;
 }
 
 /*************************
@@ -230,6 +256,9 @@ body {
     border-radius: 15px;
 }
 
+.divider.strong {
+    height: 2px;
+} 
 
 /*************************
 * Overides

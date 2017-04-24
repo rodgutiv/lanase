@@ -32,6 +32,7 @@ class CreateMetadatasTable extends Migration
             $table->string('rights');
             $table->string('description');
             $table->string('geolocation')->nullable();
+            $table->date('input_date');
             $table->timestamps();
         });
     }

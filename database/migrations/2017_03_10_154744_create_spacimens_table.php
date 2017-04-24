@@ -26,6 +26,7 @@ class CreateSpacimensTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('family', 45);
             $table->string('genus', 45);
+            $table->date('date')->nullable();
             $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('media_id')->references('id')->on('medias')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('literature_id')->references('id')->on('literatures')->onDelete('cascade')->onUpdate('cascade');

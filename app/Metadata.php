@@ -9,9 +9,9 @@ class Metadata extends Model
     //
     protected $table = "metadatas";
 
-    protected $fillable = ['creator','title','publisher','publication_status_year','subject','contributor','date','language','resource_type','alternate_identifier','related_identifier','size','format','version','rights','description','geolocation'];
+    protected $fillable = ['creator','title','publisher','publication_status_year','subject','contributor','date','language','resource_type','alternate_identifier','related_identifier','size','format','version','rights','description','geolocation', 'input_date'];
 
-    public function specimen() {
-    	return $this->hasOne('App\Specimen');
+    public function specimens() {
+    	return $this->hasMany('App\Specimen');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\User;
 use Illuminate\Support\Facades\DB;
-use App\Research_area;
+use App\Research_Area;
 use Laracasts\Flash\Flash;
 
 class ProjectsController extends Controller
