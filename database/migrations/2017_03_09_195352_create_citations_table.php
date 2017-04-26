@@ -26,7 +26,7 @@ class CreateCitationsTable extends Migration
             $table->integer('taxonomy_id')->unsigned();
             $table->integer('citation_id')->unsigned();
             $table->string('name');
-            $table->char('languaje', 2)->nullable();
+            $table->char('language', 2)->nullable();
             $table->boolean('preferred')->nullable();
             $table->boolean('sex')->nullable();
             $table->string('life_stage')->nullable();
