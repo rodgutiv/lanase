@@ -26,12 +26,12 @@ class CreateCitationsTable extends Migration
             $table->integer('taxonomy_id')->unsigned();
             $table->integer('citation_id')->unsigned();
             $table->string('name');
-            $table->char('language', 2)->nullable();
+            $table->char('language', 3)->nullable();
             $table->boolean('preferred')->nullable();
             $table->boolean('sex')->nullable();
             $table->string('life_stage')->nullable();
             $table->string('area')->nullable();
-            $table->char('country', 2)->nullable();
+            $table->char('country')->nullable();
             $table->boolean('plural')->nullable();
             $table->timestamps();
             $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
