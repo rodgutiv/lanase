@@ -16,10 +16,10 @@ class CreateMediasTable extends Migration
         Schema::create('medias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('citation_id')->unsigned();
-            $table->string('type_2');
+            $table->string('type');
             $table->string('format');
             $table->string('identifier');
-            $table->string('references_2');
+            $table->string('references');
             $table->string('title');
             $table->string('description');
             $table->string('audience');

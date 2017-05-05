@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','joined','status','role'
+        'name', 'email', 'password', 'image', 'joined', 'status', 'role'
     ];
 
     /**
@@ -27,8 +27,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function projects(){
-        return $this->belongsToMany('App\Project')->withPivot('order_2', 'responsible')->withTimestamps();
+    public function datasets(){
+        return $this->belongsToMany('App\Dataset')->withPivot('order')->withTimestamps();
     }
 
     public function sessions(){

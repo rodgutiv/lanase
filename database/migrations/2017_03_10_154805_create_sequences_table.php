@@ -15,8 +15,10 @@ class CreateSequencesTable extends Migration
     {
         Schema::create('sequences', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('specimen_id')->unsigned();
             $table->string('path');
-            $table->string('desc_2')->nullable();
+            $table->string('desc')->nullable();
+            $table->foreign('specimen_id')->references('id')->on('specimens')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

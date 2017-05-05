@@ -20,19 +20,11 @@ class CreateProjectsTable extends Migration
             $table->string('title');
             $table->string('abstract_es');
             $table->string('abstract')->nullable();
-            $table->string('galleryfolder');
+            $table->integer('responsible')->unsigned();
             $table->integer('display');
+            $table->string('image');
             $table->foreign('research_area_id')->references('id')->on('research_areas')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
-        });
-
-        Schema::create('project_user', function (Blueprint $table) {
-            $table->text('order_2');
-            $table->integer('user_id')->unsigned();
-            $table->integer('project_id')->unsigned();
-            $table->integer('responsible');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('responsible')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -51,7 +43,7 @@ class CreateProjectsTable extends Migration
         //     $table->dropForeign('projects_user_user_id_foreign');
         //     $table->dropForeign('projects_user_project_id_foreign');
         // });
-        Schema::dropIfExists('project_user');
+        
         Schema::dropIfExists('projects');
     }
 }

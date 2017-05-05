@@ -9,13 +9,10 @@ class Specie extends Model
     //
     protected $table = "species";
 
-    protected $fillable = ['citation_id','marine','terrestrial','extinct','hybrid','living_period','age_in_days','size_in_mm','mass_in_gram','name_2','habitat','freshwater','name'];
+    protected $fillable = ['taxonomy_id','marine','terrestrial','extinct','hybrid','living_period','age_in_days','size_in_mm','mass_in_gram','name_2','habitat','freshwater','name'];
 
     public function citation(){
     	return $this->belongsTo('App\Citation');
     }
 
-    public function specimens(){
-    	return $this->hasMany('App\Specimen');
-    }
 }

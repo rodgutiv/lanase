@@ -9,7 +9,7 @@ class Specimen extends Model
     //
     protected $table = "specimens";
 
-    protected $fillable = ['taxonomy_id','media_id','literature_id','species_id','metadata_id','identifier_id','collection_id','sequence_id','user_id','family','genus'];
+    protected $fillable = ['dataset_id','taxonomy_id','media_id','literature_id','metadata_id','identifier_id','collection_id','user_id','family','genus'];
 
     public function identifier(){
     	return $this->belongsTo('App\Identifier');
@@ -19,8 +19,8 @@ class Specimen extends Model
     	return $this->belongsTo('App\Collection');
     }
 
-    public function sequence(){
-    	return $this->belongsTo('App\Sequence');
+    public function sequences(){
+    	return $this->hasMany('App\Sequence');
     }
 
     public function user(){
@@ -41,10 +41,6 @@ class Specimen extends Model
 
     public function literature(){
     	return $this->belongsTo('App\Literature');
-    }
-
-    public function specie(){
-    	return $this->belongsTo('App\Specie');
     }
 
     public function metadata(){

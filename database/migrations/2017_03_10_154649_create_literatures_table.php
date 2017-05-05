@@ -16,7 +16,7 @@ class CreateLiteraturesTable extends Migration
         Schema::create('literatures', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('citation_id')->unsigned();
-            $table->string('type_2');
+            $table->string('type');
             $table->string('remarks');
             $table->foreign('citation_id')->references('id')->on('citations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

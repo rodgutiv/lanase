@@ -23,11 +23,4 @@ class Citation extends Model
     	return $this->hasMany('App\Specie');
     }
 
-    /**
-     * El metodo es taxonomic_classifications porque une con esa table pero la table pivote se llama
-     * vernacular_name
-     */
-    public function taxonomic_classifications() {
-    	return $this->belongsToMany('App\Taxonomic_Classification', 'vernacular_name', 'citation_id', 'taxonomy_id')->withPivot('name', 'language', 'preferred', 'sex', 'life_stage', 'area', 'country', 'plural')->withTimestamps();
-    }
 }

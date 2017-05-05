@@ -14,13 +14,13 @@
 </ul>
 <!-- Usuarios -->
 <ul id="users-options" class="dropdown-content">
-	<li><a href="{{ route('users.index') }}">Todos los Usuarios</a></li>
-	<li><a href="{{ route('users.create') }}">Agregar Nuevo</a></li>
+	<li><a href="{{ route('users.index') }}">Ver/Editar</a></li>
+	<li><a href="{{ route('users.create') }}">Agregar</a></li>
 	<li class="divider"></li>
 	<li><a href="">Roles</a></li>
 </ul>
 <!-- Investigación -->
-<ul id="research-options" class="dropdown-content">
+<ul id="investigation" class="dropdown-content">
 	<li><a href="{{ route('researcharea.index') }}">Areas de investigacion</a></li>
 	<li><a href="{{ route('researcharea.create') }}">Agregar Area</a></li>
 </ul>
@@ -35,18 +35,27 @@
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="{{ url('/panel/dashboard') }}">Dashboard</a></li>
-
 			<li><a class="dropdown-button" href="#!" data-activates="users-options">Usuarios<i class="material-icons right">arrow_drop_down</i></a></li>
-			<li><a class="dropdown-button" href="#!" data-activates="research-options">Investigación<i class="material-icons right">arrow_drop_down</i></a></li>
-			<li><a class="dropdown-button" href="#!" data-activates="projects-options">Proyectos<i class="material-icons right">arrow_drop_down</i></a></li>
-			<!-- Dropdown Trigger -->
+			<li><a class="dropdown-button" href="#!" data-activates="investigation">Investigación<i class="material-icons right">arrow_drop_down</i></a></li>
 			<li><a class="dropdown-button" href="#!" data-activates="perfil">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
-
 		</ul>
 		<ul class="side-nav" id="mobile-nav">
-			<li><a href="!#">Module 1</a></li>
-			<li><a href="!#">Module 2</a></li>
-			<li><a href="!#">Module 3</a></li>
+			<li><a href="{{ url('/panel/dashboard') }}">Dashboard</a></li>
+			<li class="no-padding">
+				<ul class="collapsible collapsible-accordion">
+					<li>
+					<a class="collapsible-header">Investigación<i class="material-icons">arrow_drop_down</i></a>
+						<div class="collapsible-body">
+							<ul>
+								<li><a href="#!">First</a></li>
+								<li><a href="#!">Second</a></li>
+								<li><a href="#!">Third</a></li>
+								<li><a href="#!">Fourth</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 </nav>

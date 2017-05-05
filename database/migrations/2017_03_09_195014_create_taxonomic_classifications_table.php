@@ -31,7 +31,7 @@ class CreateTaxonomicClassificationsTable extends Migration
             $table->string('subclass')->nullable();
             $table->string('infraclass')->nullable();
             $table->string('superorder')->nullable();
-            $table->string('order_2')->nullable();
+            $table->string('order')->nullable();
             $table->string('suborder')->nullable();
             $table->string('infraorder')->nullable();
             $table->string('parvorder')->nullable();

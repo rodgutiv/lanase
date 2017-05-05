@@ -9,9 +9,9 @@ class Sequence extends Model
     //
     protected $table = "sequences";
 
-    protected $fillable = ['path', 'desc_2'];
+    protected $fillable = ['path', 'specimen_id', 'desc_2'];
 
-    public function specimens() {
-    	return $this->hasMany('App\Specimen');
+    public function specimen() {
+    	return $this->belongsTo('App\Specimen');
     }
 }
