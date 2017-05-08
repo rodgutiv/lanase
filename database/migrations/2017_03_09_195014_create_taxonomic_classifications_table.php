@@ -41,6 +41,7 @@ class CreateTaxonomicClassificationsTable extends Migration
             $table->string('tribe')->nullable();
             $table->string('genus');
             $table->string('subgenus')->nullable();
+            $table->string('specie')->nullable();
             $table->string('subspecie')->nullable();
             $table->timestamps();
         });

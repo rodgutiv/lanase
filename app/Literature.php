@@ -9,7 +9,7 @@ class Literature extends Model
     //
     protected $table = "literatures";
 
-    protected $fillable = ['citation_id','type_2','remarks'];
+    protected $fillable = ['citation_id','type','remarks'];
 
     public function citation() {
     	return $this->belongsTo('App\Citation');

@@ -14,4 +14,5 @@ class Distribution extends Model
     public function specimen() {
     	return $this->belongsTo('App\Specimen');
     }
+
 }

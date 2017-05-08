@@ -19,8 +19,4 @@ class Citation extends Model
     	return $this->hasMany('App\Literature');
     }
 
-    public function species() {
-    	return $this->hasMany('App\Specie');
-    }
-
 }

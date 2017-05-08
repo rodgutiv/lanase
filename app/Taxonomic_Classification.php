@@ -9,7 +9,7 @@ class Taxonomic_Classification extends Model
     //
     protected $table = "taxonomic_classifications";
 
-    protected $fillable = ['id','scientific_name', 'canonic_name','infra_generic','infra_epiteto_specific','rank_marker','modified','specific_epithet','superkingdom','kingdom','phylum','subphylum','superclass','class','subclass','infraclass','superorder','order_2','suborder','infraorder','parvorder','superfamily','family','subfamily','tribe','genus','subgenus','subspecie'];
+    protected $fillable = ['id','scientific_name', 'canonic_name','infra_generic','infra_epiteto_specific','rank_marker','modified','specific_epithet','superkingdom','kingdom','phylum','subphylum','superclass','class','subclass','infraclass','superorder','order','suborder','infraorder','parvorder','superfamily','family','subfamily','tribe','genus','subgenus','specie','subspecie'];
 
     public function vernacular_names(){
         return $this->hasMany('App\Vernacular_Name', 'taxonomy_id');

@@ -15,23 +15,16 @@ class CreateMetricsTable extends Migration
     {
         Schema::create('metrics', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('dataset_id')->unsigned();
+            $table->foreign('dataset_id')->references('id')->on('datasets')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('datasetkey');
             $table->integer('count_usages');
-            $table->integer('count_synonyms');
-            $table->integer('count_names');
-            $table->integer('count_col');
-            $table->integer('count_nub');
             $table->string('count_by_rank');
             $table->string('count_by_kingdom');
-            $table->string('count_by_origin');
-            $table->string('count_vernacular_by_lang');
-            $table->string('count_extensions');
-            $table->string('count_other');
+            $table->string('count_by_origin');           
             $table->timestamp('downloaded')->nullable();
             $table->timestamp('created')->nullable();
             $table->boolean('latest');
-            $table->string('count_by_issue');
-            $table->string('count_by_constituent');
             $table->timestamps();
         });
     }

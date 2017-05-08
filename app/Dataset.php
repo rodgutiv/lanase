@@ -17,4 +17,12 @@ class Dataset extends Model
     public function users() {
     	return $this->belongsToMany('App\User')->withPivot('order')->withTimestamps();
     }
+
+    public function specimenes() {
+    	return $this->hasMany('App\Specimen');
+    }
+
+    public function metrics() {
+    	return $this->hasOne('App\Metric');
+    }
 }

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->boolean('display')->default(1);
             $table->timestamp('joined')->nullable();
             $table->smallInteger('status')->default(1);
+            $table->string('reminder')->nullable();
+            $table->string('remember')->nullable();
             $table->smallInteger('role');
             $table->rememberToken();
             $table->timestamps();

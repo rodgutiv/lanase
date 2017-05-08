@@ -15,7 +15,7 @@ class CreateSpeciesTable extends Migration
     {
         Schema::create('species', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('citation_id')->unsigned();
+            $table->integer('taxonomy_id')->unsigned();
             $table->boolean('marine')->nullable();
             $table->boolean('terrestrial')->nullable();
             $table->boolean('extinct')->nullable();
@@ -24,11 +24,9 @@ class CreateSpeciesTable extends Migration
             $table->integer('age_in_days')->nullable();
             $table->decimal('size_in_mm')->nullable();
             $table->decimal('mass_in_gram')->nullable();
-            $table->string('name_2')->nullable();
             $table->string('habitat')->nullable();
             $table->boolean('freshwater')->nullable();
-            $table->string('name');
-            $table->foreign('citation_id')->references('id')->on('citations')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
