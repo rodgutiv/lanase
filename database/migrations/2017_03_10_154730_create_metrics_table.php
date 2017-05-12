@@ -36,6 +36,9 @@ class CreateMetricsTable extends Migration
      */
     public function down()
     {
+        Schema::table('metrics', function (Blueprint $table) {
+            $table->dropForeign('metrics_dataset_id_foreign');
+        });
         Schema::dropIfExists('metrics');
     }
 }

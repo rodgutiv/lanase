@@ -33,6 +33,8 @@ class CreateLiteraturesTable extends Migration
         Schema::table('literatures', function (Blueprint $table) {
             $table->dropForeign('literatures_citation_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('literatures');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

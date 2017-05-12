@@ -50,27 +50,23 @@ class ProjectsController extends Controller
     {
         //
         $project = new Project($request->all());
-        $project->galleryfolder = "";
-
-        DB::beginTransaction();
-
-        try {
-
-            $project->save();
-            // $area = $request->research_area_id;
-            if($request->has('user_id')){
-                $user_id = $request->user_id;
-                $project->users()->attach($user_id, ['responsible' => 1, 'order_2' => ""]);
+        unset($project->image);
+        if($request->file('image')){
+            $image=$request->file('image');
+            $image_name=$request->title_es.time().'.'.$image->getClientOriginalExtension();
+            $path=public_path()."/images/projects/".$request->title_es;
+            $request->image=$image_name;
+            $project->image=$image_name;
+        }
+        if($project->save()){
+            if($request->file('image')){
+                $image->move($path, $image_name);
             }
+            Flash::overlay('Se ha registrado '.$project->title_es.' de forma exitosa.', 'Alta exitosa');
+        }else{
+            Flash::overlay('Ha ocurrido un error al registrar '.$project->title_es, 'Error');
+        }
 
-        DB::commit();
-        Flash::overlay('Se ha registrado correctamente el proyecto: '.$project->title_es, 'Alta exitosa');
-
-        } catch (\Exception $e) {
-            DB::rollBack();
-            Flash::overlay('Ha ocurrido un error: '.$e, 'Error');
-        }        
-        
         return redirect()->route('projects.create');
     }
 

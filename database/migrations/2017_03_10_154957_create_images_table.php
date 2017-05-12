@@ -32,6 +32,8 @@ class CreateImagesTable extends Migration
         Schema::table('images', function (Blueprint $table) {
             $table->dropForeign('images_specimen_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('images');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

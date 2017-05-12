@@ -40,6 +40,8 @@ class CreateDistributionsTable extends Migration
         Schema::table('distributions', function (Blueprint $table) {
             $table->dropForeign('distributions_specimen_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('distributions');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

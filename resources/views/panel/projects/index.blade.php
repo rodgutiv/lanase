@@ -12,20 +12,21 @@
 @section('content')
 
 	<div class="row mt-30">
-		<div class="col s12 border-bottom">
-			<h5><b>Proyectos</b></h5>
+		<div class="col s12 m6 border-bottom">
+			<h5>
+			<b>Proyectos</b>
+			<a href="{{ route('projects.create') }}" class="btn waves-effect waves-light green pull-right"><i class="material-icons">add</i></a>
+			</h5>
 		</div>
 	</div>
 		<div class="row">
-			<div class="col s12 z-depth-1 white">
+			<div class="col s12 m6 z-depth-1 white">
 				<table class="bordered responsive-table">
 					<thead>
 						<tr>
 							<th>Id</th>
 							<th>Nombre (es)</th>
-							<th>Research Area</th>
 							<th>Responsable</th>
-							<th>Display</th>
 							<th>Opciones</th>
 						</tr>
 					</thead>
@@ -34,21 +35,8 @@
 						<tr>
 							<td>{{ $project->id }}</td>
 							<td>{{ $project->title_es }}</td>
-							<td>{{ $project->research_area->title_es }}</td>					
-							<td>
-								@foreach($project->users as $user)
-									@if($user->pivot->responsible == 1)
-										{{ $user->name }}
-									@endif
-								@endforeach
-							</td>					
-							<td>
-								@if( $project->display == 1 )
-								<span class='badge1 teal white-text'>Si</span>
-								@else
-								<span class='badge1 red white-text'>No</span>
-								@endif
-							</td>						
+							{{-- <td>{{ $project->research_area->title_es }}</td>					 --}}					
+							<td>{{ $project->responsable->name }}</td>						
 							<td>
 								<a href="#!" class="user-view" data-id="{{ $project->id }}"><i class="material-icons brown-text">receipt</i></a>
 								<a href="#!" class="user-edit" data-id="{{ $project->id }}"><i class="material-icons teal-text">edit</i></a>

@@ -49,13 +49,26 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="input-field file-field">
+					<div class="btn">
+						<span>
+							Imagen        
+						</span>
+						{!! Form::file('image') !!}
+					</div>
+					<div class="file-path-wrapper">
+						{!! Form::text('image',null,['class'=>'file-path validate','placeholder'=>'Selecciona una imagen']) !!}
+					</div>
+				</div>
+			</div>
+			<div class="row">
 				<div class="input-field col s12 m4">
 					
 					{!! Form::select('research_area_id', $researchareas, null, ['class' => 'select-dropdown', 'required', 'id' => 'research_area_id', 'placeholder' => 'Seleccione una area']) !!}
 				</div>
 				<div class="input-field col s12 m4">
 					
-					{!! Form::select('user_id', $users, null, ['class' => 'select-dropdown', 'required', 'id' => 'user_id', 'placeholder' => 'Seleccione un responsable']) !!}
+					{!! Form::select('responsible', $users, null, ['class' => 'select-dropdown', 'required', 'id' => 'responsible', 'placeholder' => 'Seleccione un responsable']) !!}
 				</div>
 			</div>
 			<div class="input-field">

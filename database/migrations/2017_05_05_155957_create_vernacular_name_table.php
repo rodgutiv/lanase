@@ -39,6 +39,8 @@ class CreateVernacularNameTable extends Migration
         Schema::table('vernacular_name', function (Blueprint $table) {
             $table->dropForeign('vernacular_name_taxonomy_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('vernacular_name');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -37,10 +37,16 @@ class CreateDatasetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('specimens', function (Blueprint $table) {
+        Schema::table('datasets', function (Blueprint $table) {
             $table->dropForeign('datasets_project_id_foreign');
         });
+        Schema::table('dataset_user', function (Blueprint $table) {
+            $table->dropForeign('dataset_user_user_id_foreign');
+            $table->dropForeign('dataset_user_dataset_id_foreign');
+        });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('dataset_user');
         Schema::dropIfExists('datasets');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

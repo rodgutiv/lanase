@@ -34,6 +34,8 @@ class CreateNcbiRecordsTable extends Migration
         Schema::table('ncbi_records', function (Blueprint $table) {
             $table->dropForeign('ncbi_records_taxonomy_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('ncbi_records');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

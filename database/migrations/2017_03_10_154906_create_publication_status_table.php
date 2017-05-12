@@ -33,6 +33,8 @@ class CreatePublicationStatusTable extends Migration
         Schema::table('publication_status', function (Blueprint $table) {
             $table->dropForeign('publication_status_specimen_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('publication_status');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

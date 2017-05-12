@@ -22,7 +22,7 @@
 <!-- Investigación -->
 <ul id="investigation" class="dropdown-content">
 	<li><a href="{{ route('researcharea.index') }}">Areas de investigacion</a></li>
-	<li><a href="{{ route('researcharea.create') }}">Agregar Area</a></li>
+	<li><a href="{{ route('projects.index') }}">Proyectos</a></li>
 </ul>
 <!-- Proyectos -->
 <ul id="projects-options" class="dropdown-content">
@@ -31,7 +31,7 @@
 </ul>
 <nav class="cyan">
 	<div class="nav-wrapper container">
-		<a href="{{ url('/panel/dashboard') }}" class="brand-logo">Inicio</a>
+		<a href="{{ url('/') }}" class="brand-logo">Inicio</a>
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="{{ url('/panel/dashboard') }}">Dashboard</a></li>

@@ -33,6 +33,8 @@ class CreateInterestFieldsTable extends Migration
         Schema::table('interest_fields', function (Blueprint $table) {
             $table->dropForeign('interest_fields_interest_tables_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('interest_fields');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -13,14 +13,10 @@
 
 
 
-Route::get('/', function () {
-	// if(\Auth::guest()){
-	// 	return view('auth.login');		
-	// }else{		
-	// 	return redirect('dashboard');
-	// }
-	return view('site.index');
-});
+Route::get('/', [
+		'uses'	=> 'SiteController@index',
+		'as'	=> 'site.index'
+		]);
 
 Route::get('/investigadores', function() {
     //

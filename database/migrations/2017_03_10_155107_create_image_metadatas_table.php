@@ -41,6 +41,8 @@ class CreateImageMetadatasTable extends Migration
         Schema::table('image_metadatas', function (Blueprint $table) {
             $table->dropForeign('image_metadatas_image_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('image_metadatas');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

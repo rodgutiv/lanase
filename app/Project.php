@@ -15,7 +15,10 @@ class Project extends Model
     	return $this->belongsTo('App\Research_Area');
     }
 
-    public function responsible() {
+    /**
+     * El nombre del metodo debe ser diferente al campo de la tabla, sino puede causar ocnflictos al momento de llamarlo
+     */
+    public function responsable() {
     	return $this->belongsTo('App\User', 'responsible');
     }
 

@@ -42,10 +42,10 @@ footer .row {
 	box-shadow: none;
 }
 
-#section-2 .card {
+/*#section-2 .card {
 	padding: 5px 30px;
 }
-
+*/
 .collection-item1 {
 	border-bottom: 1px solid #ddd;
 	background: #fefefe;
@@ -93,4 +93,15 @@ footer .row {
 	border-bottom: 1px solid #ccc; 
 	width: 100%;
 	padding-bottom: 10px;
+}
+
+.btn-large.halfway-fab {
+	bottom: -28px;
+}
+
+.halfway-fab {
+	position: absolute;
+	right: 15px;
+	bottom: -20px;
+	color: #FFF;
 }

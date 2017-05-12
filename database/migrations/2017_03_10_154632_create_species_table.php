@@ -39,8 +39,10 @@ class CreateSpeciesTable extends Migration
     public function down()
     {
         Schema::table('species', function (Blueprint $table) {
-            $table->dropForeign('species_citation_id_foreign');
+            $table->dropForeign('species_taxonomy_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('species');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

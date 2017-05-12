@@ -39,6 +39,8 @@ class CreateSamplesTable extends Migration
             $table->dropForeign('samples_user_id_foreign');
             $table->dropForeign('samples_collect_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('samples');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

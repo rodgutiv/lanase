@@ -19,7 +19,6 @@ class CreateSpecimensTable extends Migration
             $table->integer('taxonomy_id')->unsigned();
             $table->integer('media_id')->unsigned();
             $table->integer('literature_id')->unsigned();
-            $table->integer('specie_id')->unsigned();
             $table->integer('metadata_id')->unsigned();
             $table->integer('identifier_id')->unsigned();
             $table->integer('collection_id')->unsigned();
@@ -31,7 +30,6 @@ class CreateSpecimensTable extends Migration
             $table->foreign('taxonomy_id')->references('id')->on('taxonomic_classifications')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('media_id')->references('id')->on('medias')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('literature_id')->references('id')->on('literatures')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('specie_id')->references('id')->on('species')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('metadata_id')->references('id')->on('metadata')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('identifier_id')->references('id')->on('identifiers')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade')->onUpdate('cascade');
@@ -52,13 +50,13 @@ class CreateSpecimensTable extends Migration
             $table->dropForeign('specimens_taxonomy_id_foreign');
             $table->dropForeign('specimens_media_id_foreign');
             $table->dropForeign('specimens_literature_id_foreign');
-            $table->dropForeign('specimens_species_id_foreign');
             $table->dropForeign('specimens_metadata_id_foreign');
             $table->dropForeign('specimens_identifier_id_foreign');
             $table->dropForeign('specimens_collection_id_foreign');
-            $table->dropForeign('specimens_sequence_id_foreign');
             $table->dropForeign('specimens_user_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('specimens');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

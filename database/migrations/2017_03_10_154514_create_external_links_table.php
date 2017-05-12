@@ -37,6 +37,8 @@ class CreateExternalLinksTable extends Migration
         Schema::table('external_links', function (Blueprint $table) {
             $table->dropForeign('external_links_taxonomy_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('external_links');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

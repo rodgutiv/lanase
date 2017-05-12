@@ -32,6 +32,8 @@ class CreateSynonymsTable extends Migration
         Schema::table('synonyms', function (Blueprint $table) {
             $table->dropForeign('synonyms_taxonomy_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('synonyms');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

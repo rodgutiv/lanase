@@ -33,6 +33,8 @@ class CreateSessionsTable extends Migration
         Schema::table('sessions', function (Blueprint $table) {
             $table->dropForeign('sessions_user_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('sessions');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

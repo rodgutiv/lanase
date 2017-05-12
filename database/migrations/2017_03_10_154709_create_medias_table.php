@@ -44,6 +44,8 @@ class CreateMediasTable extends Migration
         Schema::table('medias', function (Blueprint $table) {
             $table->dropForeign('medias_citation_id_foreign');
         });
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('medias');
+        // DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

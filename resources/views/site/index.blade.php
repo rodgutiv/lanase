@@ -54,12 +54,36 @@
     </div>
 
 </section>
-    
+
 <section id="section-2">
+    <div class="row">
+        <div class="col s12 m6">
+            <h6 class="underline"><b>Proyectos</b></h6>
+        </div>
+        <div class="col s12">
+            @foreach( $projects as $project)
+            <div class="col s12 m3">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ asset('images/projects').'/'.$project->title_es.'/'.$project->image }}">
+                        <a class="btn halfway-fab waves-effect waves-light red">ver mas</a>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">{{ ucwords($project->title_es) }}</span>
+                        <p>{{ $project->abstract_es }}</p>
+                    </div>
+              </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+    
+<section id="section-3">
     <div class="row">
         <div class="col s6">
      
-            <h6 class="underline">Próximo eventos</h6>
+            <h6 class="underline"><b>Próximo eventos</b></h6>
             <ul class="collection mt-15">
                 <li class="collection-item1 col s12">
                     <div class="col s2">
