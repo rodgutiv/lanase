@@ -21,8 +21,8 @@ class CreateDistributionsTable extends Migration
             $table->decimal('altitude')->nullable();
             $table->text('site')->nullable();
             $table->date('date')->nullable();
-            $table->string('country');
-            $table->string('region');
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
             $table->string('locality')->nullable();
             $table->string('sub_locality')->nullable();
             $table->timestamps();
