@@ -17,7 +17,7 @@ class CreateVernacularNameTable extends Migration
             $table->increments('id');
             $table->integer('taxonomy_id')->unsigned();
             $table->string('name');
-            $table->char('language', 2)->nullable();
+            $table->char('language', 3)->nullable();
             $table->boolean('preferred')->nullable();
             $table->boolean('sex')->nullable();
             $table->string('life_stage')->nullable();
