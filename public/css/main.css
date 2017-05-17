@@ -95,8 +95,14 @@ textarea {
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Lato', sans-serif;
     background: #f8f8f8;
+    padding-left: 18%;
+}
+
+nav .brand-logo,
+nav ul a {
+    color: #111;
 }
 
 .col-center {
@@ -130,21 +136,27 @@ body {
     padding: 5px 10px;
 }
 
-.container {
-    width: 92%;
-    max-width: 1280px;
+
+#panel-logo {
+    width: 100%;
+    height: 64px;
+    padding: 20px 25%;
+    margin-bottom: 30PX;
+    background: #642B73;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.card h4 {
-    /*white-space: pre-line;    */
-    margin-bottom: 5PX;
+#panel-logo a {
+    padding: 0!important;
+    line-height: 100%;
 }
 
-.card p{
-    color: #AAA;
-    font-size: 1rem;
-    margin-bottom: 15px;
+.active1 {
+    background: rgba(0,0,0,0.25);
+    border-right: 5px solid #f3c43f;
 }
+
 /*************************
 * Margins
 *************************/
@@ -282,6 +294,54 @@ nav i.material-icons {
 }
 .btn-block{
     width: 100%;
+}
+
+
+.container {
+    width: 92%;
+    max-width: 1280px;
+}
+
+.card {
+    padding: 20px ;
+}
+
+.card h1 {
+    /*white-space: pre-line;    */
+    /*margin-bottom: 5px;*/
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.card p{
+    color: #AAA;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.side-nav {
+    width: 18%;
+    background-color: #004d40;
+}
+
+.side-nav.fixed a,
+.side-nav.fixed p {
+    color: #ddd;    
+}
+
+.side-nav.fixed p {
+    padding: 0 16px;
+    margin-bottom: 15px;
+}
+
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body {
+    background-color: #1F665A;
+}
+
+.side-nav li>a>i {
+    color: #ddd;
+    margin: 0;
 }
 
 

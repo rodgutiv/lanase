@@ -12,32 +12,33 @@
 @section('content')
 
 <div class="row mt-30">
-	<div class="card col s12 m2 p-1rem">
-		<div class="col s8 offset-s2">
-			<img src="{{asset('images/user.jpg')}}" class="circle responsive-img">
-		</div>
-		<div class="col s12 mt-15 center-align">
+	<div class="col s12 m3">
+		<div class="card center-align">
+			<div class="col s8 offset-s2">
+				<img src="{{asset('images/user.jpg')}}" class="circle responsive-img">
+			</div>
+			<div class="clearfix"></div>
 			<div class="divider"></div>
 			<p class="mt-15 mb-0 black-text"><b>{{ Auth::user()->name }}</b></p>
 			<p><i>{{ Auth::user()->email }}</i></p>
 		</div>
 	</div>
 	@if(Auth::user()->isAdmin())
-	<div class="card col s12 m2 offset-m1 pb-15">
+	<div class="col s12 m2">
+		<div class="card">
+			<h1 class="teal-text">{{ $users['activos'] }}</h1>
+			<span>USUARIOS</span>
+			<div class="divider strong teal"></div>
+		</div>
+	</div>
+	<div class="card col s12 m2 pb-15">
 		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
 		{{-- <small>Usuarios activos</small> --}}
 		</h4>
 		<p>USUARIOS ACTIVOS</p>
 		<div class="divider strong teal"></div>
 	</div>
-	<div class="card col s12 m2 offset-m1 pb-15">
-		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
-		{{-- <small>Usuarios activos</small> --}}
-		</h4>
-		<p>USUARIOS ACTIVOS</p>
-		<div class="divider strong teal"></div>
-	</div>
-	<div class="card col s12 m2 offset-m1 pb-15">
+	<div class="card col s12 m2 pb-15">
 		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
 		{{-- <small>Usuarios activos</small> --}}
 		</h4>

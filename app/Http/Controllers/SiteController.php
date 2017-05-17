@@ -8,7 +8,7 @@ use App\Project;
 class SiteController extends Controller
 {
     public function index(){
-    	$projects = Project::all();
+    	$projects = Project::where('display', 1)->get();
     	return view('site.index')->with('projects', $projects);
     }
 }

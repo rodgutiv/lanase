@@ -29,9 +29,8 @@
 	<li><a href="{{ route('projects.index') }}">Proyectos</a></li>
 	<li><a href="{{ route('projects.create') }}">Agregar Proyecto</a></li>
 </ul>
-<nav class="cyan">
+<nav class="white">
 	<div class="nav-wrapper container">
-		<a href="{{ url('/') }}" class="brand-logo">Inicio</a>
 		<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="{{ url('/panel/dashboard') }}">Dashboard</a></li>
@@ -59,3 +58,27 @@
 		</ul>
 	</div>
 </nav>
+
+<ul class="side-nav fixed">
+	<div id="panel-logo">
+		<a href="{{ url('/') }}" class="no-padding"><img src="{{ asset('images/logo-texto.png') }}" class="responsive-img"></a>
+	</div>
+	<p>GENERAL</p>
+	<li class="active1"><a href="#!"><i class="fa fa-circle-o-notch" aria-hidden="true"></i> Dashboard</a></li>
+	<li><a href="#!">Second Sidebar Link</a></li>
+	<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header">Dropdown<i class="material-icons right white-text">arrow_drop_down</i></a>
+				<div class="collapsible-body">
+					<ul>
+						<li><a href="#!">First</a></li>
+						<li><a href="#!">Second</a></li>
+						<li><a href="#!">Third</a></li>
+						<li><a href="#!">Fourth</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</li>
+</ul>
