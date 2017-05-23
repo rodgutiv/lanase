@@ -1,4 +1,4 @@
-@extends('main')
+@extends('panel.main')
 @section('title','send info')
 @section('nav')
 <script src="{{ asset('js/select_file.js') }}"></script>
