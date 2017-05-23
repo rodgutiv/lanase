@@ -36,7 +36,7 @@
     transition:all ease 2s;
 }
 </style>
-@include('admin.nav')
+<!--@include('admin.nav')-->
 @endsection
 @section('content')
 
