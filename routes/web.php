@@ -47,3 +47,13 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Route::get('/home', 'HomeController@index');
+
+Route::resource('taxonomic','TaxonomicClassController');
+
+Route::get('/import', function(){
+	return view('taxonomic.import');
+});
+
+Route::any('/test', function(){
+	return view('taxonomic.test');
+});
