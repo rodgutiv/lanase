@@ -12,6 +12,9 @@
 @section('content')
 
 <div class="row mt-30">
+	@if(isset(Auth::user()->image))
+	has it
+	@endif
 	<div class="col s12 m3">
 		<div class="card center-align">
 			<div class="col s8 offset-s2">
@@ -35,7 +38,7 @@
 		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
 		{{-- <small>Usuarios activos</small> --}}
 		</h4>
-		<p>USUARIOS ACTIVOS</p>
+		<p></p>
 		<div class="divider strong teal"></div>
 	</div>
 	<div class="card col s12 m2 pb-15">

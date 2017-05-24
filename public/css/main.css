@@ -152,11 +152,20 @@ nav ul a {
     line-height: 100%;
 }
 
-.active1 {
-    background: rgba(0,0,0,0.25);
-    border-right: 5px solid #f3c43f;
+.side-nav.fixed .active1 > a {
+    background: #f8f8f8;
+    /*border-right: 5px solid #f3c43f;*/
+    color: #111;
 }
 
+.side-nav.fixed .active1 > a > i {
+    color: #111;
+}
+
+.side-nav.fixed .active1 > a:hover {
+    background: #f8f8f8;
+    color: #111;
+}
 /*************************
 * Margins
 *************************/
@@ -298,7 +307,7 @@ nav i.material-icons {
 
 
 .container {
-    width: 92%;
+    width: 95%;
     max-width: 1280px;
 }
 
@@ -322,7 +331,8 @@ nav i.material-icons {
 
 .side-nav {
     width: 18%;
-    background-color: #004d40;
+    background-color: #222;
+    box-shadow: none;
 }
 
 .side-nav.fixed a,
@@ -335,8 +345,14 @@ nav i.material-icons {
     margin-bottom: 15px;
 }
 
+.side-nav a:hover,
+.side-nav .collapsible-header:hover, 
+.side-nav.fixed .collapsible-header:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
 .side-nav .collapsible-body, .side-nav.fixed .collapsible-body {
-    background-color: #1F665A;
+    background-color: #333;
 }
 
 .side-nav li>a>i {
@@ -344,6 +360,59 @@ nav i.material-icons {
     margin: 0;
 }
 
+.side-nav .collapsible-body li a,
+.side-nav.fixed .collapsible-body li a {
+    padding: 0 23.5px 0 50px;
+}
+
+.collapsible-header i {
+    font-size: inherit;
+    text-align: inherit;
+}
+
+.collapsible-body > ul > li > a {
+    position: relative;
+}
+
+.collapsible-body > ul > li > a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22px;
+    width: 16px;
+    height: 24px;
+    /*background: #ddd;*/
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.collapsible-body > ul  li:not(:last-child) > a:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 22px;
+    width: 1px;
+    height: 24px;
+    /*background: #ddd;*/
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+.collapsible-body > ul > li.active2 > a {
+    position: relative;
+    background: #f8f8f8;
+    color: #222;
+}
+
+.collapsible-body > ul > li.active2 > a:after {
+    border-left: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.collapsible-body > ul  li.active2:not(:last-child) > a:before {
+    border-left: 1px solid #222;
+    border-top: 1px solid #222;
+}
 
 /* ==========================================================================
    Helper classes

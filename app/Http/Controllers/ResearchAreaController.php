@@ -49,8 +49,10 @@ class ResearchAreaController extends Controller
         //cambiar nombre de la imagen
         unset($area->image);
         if($request->file('image')){
+            $title = strtolower($request->title_es);
             $image=$request->file('image');
-            $image_name=$request->title_es.time().'.'.$image->getClientOriginalExtension();
+            $image_name=$title.time().'.'.$image->getClientOriginalExtension();
+            // $path="../".public_path()."/images/researcharea/"; //server version
             $path=public_path()."/images/researcharea/";
             $request->image=$image_name;
             $area->image=$image_name;

@@ -26,12 +26,14 @@ Route::get('/investigadores', function() {
 
 Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
     //
-	Route::get('/dashboard', ['uses' => 'MainController@getIndex']);
-	Route::resource('users', 'UserController');
+	Route::get('/dashboard', [
+		'uses' => 'MainController@getIndex',
+		'as' => 'dashboard']);
 	Route::post('users/getUsers', [
 		'uses'	=> 'UserController@getUsers',
 		'as'	=> 'users.getUsers'
 		]);
+	Route::resource('users', 'UserController');
 	Route::resource('researcharea', 'ResearchAreaController');
 	Route::resource('projects', 'ProjectsController');
 });

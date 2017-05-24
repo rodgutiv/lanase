@@ -65,7 +65,7 @@
             <div class="col s12 m3">
                 <div class="card">
                     <div class="card-image">
-                        <img src="{{ asset('images/projects').'/'.$project->title_es.'/'.$project->image }}">
+                        <img src="{{ asset('images/projects').'/'.strtolower($project->title_es).'/'.$project->image }}">
                         <a class="btn halfway-fab waves-effect waves-light red">ver mas</a>
                     </div>
                     <div class="card-content">

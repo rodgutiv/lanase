@@ -1,4 +1,4 @@
-@extends('panel.main')
+@extends('site.main')
 @section('title','Dashboard')
 @section('content')
 

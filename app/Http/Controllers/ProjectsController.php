@@ -52,9 +52,11 @@ class ProjectsController extends Controller
         $project = new Project($request->all());
         unset($project->image);
         if($request->file('image')){
+            $title = strtolower($request->title_es);
             $image=$request->file('image');
-            $image_name=$request->title_es.time().'.'.$image->getClientOriginalExtension();
-            $path=public_path()."/images/projects/".$request->title_es;
+            $image_name=$title.time().'.'.$image->getClientOriginalExtension();
+            // $path="../".public_path()."/images/projects/".$title; //server version
+            $path=public_path()."/images/projects/".$title;
             $request->image=$image_name;
             $project->image=$image_name;
         }
