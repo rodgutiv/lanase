@@ -15,7 +15,7 @@
 	@if(isset(Auth::user()->image))
 	has it
 	@endif
-	<div class="col s12 m3">
+{{-- 	<div class="col s12 m3">
 		<div class="card center-align">
 			<div class="col s8 offset-s2">
 				<img src="{{asset('images/user.jpg')}}" class="circle responsive-img">
@@ -25,51 +25,59 @@
 			<p class="mt-15 mb-0 black-text"><b>{{ Auth::user()->name }}</b></p>
 			<p><i>{{ Auth::user()->email }}</i></p>
 		</div>
-	</div>
+	</div> --}}
 	@if(Auth::user()->isAdmin())
-	<div class="col s12 m2">
-		<div class="card">
-			<h1 class="teal-text">{{ $users['activos'] }}</h1>
-			<span>USUARIOS</span>
-			<div class="divider strong teal"></div>
+	<p class="p-col mb-30 fs-13">Información General</p>
+	<div class="col s12 m3">
+		<div class="col s12 card card-dashboard teal">
+			<div class="col s4">
+				<i class="fa fa-user white-text"></i>
+			</div>
+			<div class="col s8 white">
+				<h4>{{ $users['total'] }}</h4>
+				<p>Usuarios</p>				
+			</div>
 		</div>
 	</div>
-	<div class="card col s12 m2 pb-15">
-		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
-		{{-- <small>Usuarios activos</small> --}}
-		</h4>
-		<p></p>
-		<div class="divider strong teal"></div>
+
+	<div class="col s12 m3">
+		<div class="col s12 card card-dashboard orange">
+			<div class="col s4">
+				<i class="fa fa-flask white-text"></i>
+			</div>
+			<div class="col s8 white">
+				<h4>{{ $users['projects'] }}</h4>
+				<p>Proyectos</p>				
+			</div>
+		</div>
 	</div>
-	<div class="card col s12 m2 pb-15">
-		<h4 class="teal-text"><b>{{ $users['activos'] }}</b> 
-		{{-- <small>Usuarios activos</small> --}}
-		</h4>
-		<p>USUARIOS ACTIVOS</p>
-		<div class="divider strong teal"></div>
+
+	<div class="col s12 m3">
+		<div class="col s12 card card-dashboard purple">
+			<div class="col s4">
+				<i class="fa fa-server white-text"></i>
+			</div>
+			<div class="col s8 white">
+				<h4>{{ $users['datasets'] }}</h4>
+				<p>Datasets</p>				
+			</div>
+		</div>
 	</div>
-	@endif
-</div>
-<div class="row">
-	@if(Auth::user()->isAdmin())
+
+	<div class="col s12 m3">
+		<div class="col s12 card card-dashboard brown">
+			<div class="col s4">
+				<i class="fa fa-tag white-text"></i>
+			</div>
+			<div class="col s8 white">
+				<h4>-</h4>
+				<p>Tareas pendientes</p>				
+			</div>
+		</div>
+	</div>
 	
-	@else
-	<div class="col s6 z-depth-2 nopadding">
-		<div class="panel-heading teal">
-			<h6><a href="users.php" class="white-text">Generales</a></h6>
-		</div>
-		<div class="panel-body">
-			{{-- <ul class="collection noborder">
-				<li class="collection-item">Total <span class="badge teal br-15 white-text">{{ $users['total'] }}</span></li>
-				<li class="collection-item">Activo <span class="badge blue br-15 white-text">{{ $users['activos'] }}</span></li>
-				<li class="collection-item">Inactivo <span class="badge orange br-15 white-text">{{ $users['inactivos'] }}</span></li>
-			</ul> --}}
-		</div>
-
-	</div>
 	@endif
 </div>
-
 
 @endsection
 

@@ -38,9 +38,9 @@
 							{{-- <td>{{ $project->research_area->title_es }}</td>					 --}}					
 							<td>{{ $project->responsable->name }}</td>						
 							<td>
-								<a href="#!" class="user-view" data-id="{{ $project->id }}"><i class="material-icons brown-text">receipt</i></a>
-								<a href="#!" class="user-edit" data-id="{{ $project->id }}"><i class="material-icons teal-text">edit</i></a>
-								<a href="#!" class="user-delete" data-id="{{ $project->id }}"><i class="material-icons red-text">delete</i></a>
+								<a href="#!" class="project-view tooltipped" data-tooltip="Detalles" data-position="top" data-delay="50" data-id="{{ $project->id }}"><i class="material-icons brown-text">receipt</i></a>
+								<a href="{{ route('projects.edit', $project->id) }}" class="project-edit tooltipped" data-tooltip="Editar" data-position="top" data-delay="50" data-id="{{ $project->id }}"><i class="material-icons teal-text">edit</i></a>
+								{{-- <a href="#!" class="user-delete" data-id="{{ $project->id }}"><i class="material-icons red-text">delete</i></a> --}}
 							</td>
 						</tr>
 						@endforeach

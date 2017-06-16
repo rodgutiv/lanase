@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('id', 'asc')->get();
         return view('panel.users.index')->with('users', $users);
     }
 
@@ -65,7 +65,35 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $projects = "";
+        // foreach ($user->projects as $project) {
+        //     $projects .= $project->title_es." ";
+        // }
+
+        $count = count($user->projects);
+
+        if( $count > 0 ){
+
+            for ($i=0; $i < count($user->projects) - 1 ; $i++) { 
+                $projects .= $user->projects[$i]->title_es." | ";
+            }
+            $projects .= $user->projects[$i]->title_es;
+            
+        }else{
+            $projects = "---";
+        }
+
+
+        return response()->json([
+                "id" => $user->id,
+                "name" => $user->name,
+                "email" => $user->email,
+                "display" => $user->display,
+                "status" => $user->status,
+                "role" => $user->role,
+                "projects" => $projects
+            ]);
     }
 
     /**
@@ -76,7 +104,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('panel.users.edit')->with('user', $user);
     }
 
     /**
@@ -86,9 +115,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($request->all());
+        if($user->save()){
+            Flash::overlay('Se ha modificado ' . $user->name . ' de forma exitosa', 'Operación exitosa');
+        }else{
+            Flash::overlay('Ha ocurrido un erro al modificar al usuario ' . $user->name, 'Error');
+        }
+        return redirect()->route('users.index');
     }
 
     /**
@@ -99,7 +135,19 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::find($id);
+        if($usuario->status == 0){
+            $usuario->status = 1;
+        }else{
+            $usuario->status = 0;
+        }
+        if($usuario->save()) {
+            Flash::overlay('Se ha modificado el status de ' . $usuario->name . ' de forma exitosa', 'Operación exitosa');
+        } else {
+            Flash::overlay('Ha ocurrido un error al modificar el status del usuario ' . $usuario->name, 'Error');
+        }
+
+        return redirect()->route('users.index');
     }
 
 
@@ -109,13 +157,13 @@ class UserController extends Controller
 
         switch($type){
             case "all":
-                $res = User::all();
+                $res = User::orderBy('id', 'asc')->get();
                 break;
             case "admin":
-                $res = User::where('role', 1)->get();
+                $res = User::where('role', 1)->orderBy('id', 'asc')->get();
                 break;
             case "user":
-                $res = User::where('role', 2)->get();
+                $res = User::where('role', 2)->orderBy('id', 'asc')->get();
                 break;
         }
 
@@ -141,10 +189,18 @@ class UserController extends Controller
             }
 
             $str .= "<td>
-                        <a href='#!'><i class='material-icons brown-text'>receipt</i></a>
-                        <a href='#!'><i class='material-icons teal-text'>edit</i></a>
-                        <a href='#!'><i class='material-icons red-text'>delete</i></a>
+                        <a href='#!' class='user-view tooltipped' data-tooltip='Detalles' data-position='top' data-delay='50' data-id='".$user->id."'><i class='material-icons brown-text'>receipt</i></a>
+                        <a href='".route('users.edit', $user->id)."' class='user-edit tooltipped' data-tooltip='Editar' data-position='top' data-delay='50'><i class='material-icons teal-text'>edit</i></a>
+                    ";
+            if($user->id != \Auth::user()->id){
+                if($user->status == 1){
+                    $str .= "<a href='#!' class='user-delete tooltipped' data-id='".$user->id."' data-tooltip='Deshabilitar' data-position='top' data-delay='50'><i class='material-icons red-text'>close</i></a>
                     </td>";
+                }else{
+                    $str .= "<a href='#!' class='user-delete tooltipped' data-id='".$user->id."' data-tooltip='Habilitar' data-position='top' data-delay='50'><i class='material-icons green-text'>check</i></a>
+                    </td>";
+                }
+            }
         }
 
         if($str == ""){

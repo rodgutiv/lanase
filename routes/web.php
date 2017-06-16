@@ -36,6 +36,7 @@ Route::group(['prefix' => 'panel', 'middleware' => 'auth'], function() {
 	Route::resource('users', 'UserController');
 	Route::resource('researcharea', 'ResearchAreaController');
 	Route::resource('projects', 'ProjectsController');
+	Route::resource('datasets', 'DatasetsController');
 });
 
 

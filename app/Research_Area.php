@@ -9,9 +9,9 @@ class Research_Area extends Model
     //
     protected $table = "research_areas";
 
-    protected $fillable = ['title_es','title','image','display'];
+    protected $fillable = ['title_es','title','display'];
 
     public function projects() {
-    	return $this->hasMany('App\Project');
+    	return $this->hasMany('App\Project', 'research_area_id');
     }
 }

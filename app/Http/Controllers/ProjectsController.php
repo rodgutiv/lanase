@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Support\Facades\DB;
 use App\Research_Area;
 use Laracasts\Flash\Flash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProjectsController extends Controller
 {
@@ -91,7 +93,11 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::find($id);
+        $researchareas = Research_Area::all()->pluck('title_es', 'id');
+        $users = User::all()->pluck('name', 'id');
+
+        return view('panel.projects.edit', compact('project', 'researchareas', 'users'));
     }
 
     /**
@@ -103,7 +109,42 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::find($id);
+        $image_name=$project->image;
+        $project->fill($request->all());
+
+        $title = strtolower($request->title_es);
+
+        // if($request->title_es != $project->title_es){
+
+        //     Storage::makeDirectory(public_path().'/carpeta/'. 0777);
+
+        // }
+
+        if($request->hasFile('image')) {
+
+            $path=public_path()."/images/projects/".$title;
+            $foto_file=$request->file('image');
+            
+            // Storage::disk('local')->delete($image_name);
+            if(File::exists('images/projects/'.$title.'/'.$image_name) && $image_name!="") {
+
+                File::delete('images/projects/'.$title.'/'.$image_name);
+
+            }
+
+            $image_name=$request->title_es.time().'.'.$foto_file->getClientOriginalExtension();
+            $foto_file->move($path,$image_name);
+            $project->image = $image_name;
+        }
+
+        if($project->save()){
+            Flash::overlay('Se ha modificado ' . $project->title_es . ' de forma exitosa', 'Operación exitosa');
+        }else{
+            Flash::overlay('Ha ocurrido un erro al modificar el proyecto ' . $project->title_es, 'Error');
+        }
+
+        return redirect()->route('projects.index');
     }
 
     /**

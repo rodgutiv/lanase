@@ -6,7 +6,7 @@
         
     <div class="row mt-150">
 
-            {!! Form::open(['url' => 'login', 'method' => 'POST', 'class' => 'col s6 col-center', 'style' => 'padding:30px' ]) !!}
+            {!! Form::open(['url' => 'login', 'method' => 'POST', 'class' => 'col s11 m6 col-center', 'style' => 'padding:30px' ]) !!}
 
                 <div class="row">
                     
@@ -34,7 +34,7 @@
                             <a href="">Olvide mi contraseña</a>
                         </div> 
                         <div class="col s6">
-                            {!! Form::submit('Log in', ['class' => 'btn btn-block btn-block-large waves-effect waves-light']) !!}
+                            {!! Form::submit('Log in', ['class' => 'btn btn-block waves-effect waves-light']) !!}
                         </div>
 
                     </div>
@@ -42,16 +42,6 @@
                 </div>
 
             {!! Form::close() !!}
-
-    </div>
-
-    <div class="row">
-        
-        <div class="col s5 col-center mt-50">
-            
-            <p id="response" class="center-align red-text"></p>
-
-        </div>
 
     </div>
 

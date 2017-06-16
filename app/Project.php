@@ -9,7 +9,7 @@ class Project extends Model
     //
     protected $table = "projects";
 
-    protected $fillable = ['research_area_id','title_es','title','abstract_es','abstract','display','responsible', 'image'];
+    protected $fillable = ['research_area_id','title_es','title','abstract_es','abstract','display','responsible'];
 
     public function research_area(){
     	return $this->belongsTo('App\Research_Area');

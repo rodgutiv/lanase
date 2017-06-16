@@ -1,5 +1,5 @@
 @extends('panel.main')
-@section('title','Dashboard')
+@section('title','Reasearch Area Create')
 
 @section('nav')
 @if(Auth::user()->isAdmin())

@@ -1,5 +1,5 @@
 @extends('panel.main')
-@section('title','Dashboard')
+@section('title','Create User')
 
 @section('nav')
 @if(Auth::user()->isAdmin())
@@ -30,9 +30,18 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s12 m2">
+				<div class="input-field col s6 m2">
 					{!! Form::select('role', ['1' => 'Admin', '2' => 'User'], null, ['class' => 'select-dropdown', 'required', 'id' => 'role', 'placeholder' => 'Seleccione un rol']) !!}
 				</div>
+				<div class="input-fields col s6 m2 offset-m1">
+					<p>Display</p>
+					{!! Form::radio('display', '1', false, ['id' => 'display1', 'class' => 'with-gap']) !!}
+					{!! Form::label('display1', 'Si') !!}
+					{!! Form::radio('display', '0', false, ['id' => 'display2', 'class' => 'with-gap']) !!}
+					{!! Form::label('display2', 'No') !!}
+				</div>				
+			</div>
+			<div class="row">
 				<div class="input-field col s12 m5">
 					{!! Form::label('password', 'Password') !!}
 					{!! Form::password('password', ['class'=>'validate', 'required']) !!}

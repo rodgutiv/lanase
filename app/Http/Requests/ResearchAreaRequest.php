@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class ResearchAreaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,23 +27,22 @@ class UserRequest extends FormRequest
             case 'POST':
             {
                 return [
-                    'name' => 'required',
-                    'role' => 'required',
+                    'title_es' => 'required',
+                    'title' => 'required',
                     'display' => 'required',
-                    'password' => 'confirmed|required',
-                    'email' => 'required|unique:users,email',
+                    'image' => 'required|image',
                 ];
             }
             case 'PUT':
             {
                 return [
-                    'name' => 'required',
-                    'role' => 'required',
+                    'title_es' => 'required',
+                    'title' => 'required',
                     'display' => 'required',
-                    'email' => 'unique:users,email,'.$this->segment(3),
+                    'image' => 'image',
                 ];
             }
         }
-
+        
     }
 }

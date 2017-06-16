@@ -8,8 +8,14 @@ html {
     color: #222;
     /*font-size: 1em;*/
     line-height: 1.4;
+    box-sizing: border-box;
 }
 
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -98,11 +104,18 @@ body {
     font-family: 'Lato', sans-serif;
     background: #f8f8f8;
     padding-left: 18%;
+    color: #333;
 }
 
 nav .brand-logo,
 nav ul a {
     color: #111;
+}
+
+table.bordered th,
+table.bordered td {
+/*    padding-left: 1rem;
+    padding-right: 1rem;*/
 }
 
 .col-center {
@@ -249,6 +262,9 @@ nav ul a {
 .p-1rem{
     padding: 1rem!important;
 }
+.pl-10 {
+    padding-left: 10px;
+}
 .pt-15 {
     padding-top: 15px;
 }
@@ -259,6 +275,10 @@ nav ul a {
 
 .pb-15 {
     padding-bottom: 15px!important;
+}
+
+.p-col {
+    padding: 0 0.75rem;
 }
 
 /*************************
@@ -274,13 +294,24 @@ nav ul a {
 .border-bottom {
     border-bottom: 1px solid #e2e2e2;
 }
+.border-left {
+    border-left: 1px solid #e2e2e2;
+}
 .br-15 {
     border-radius: 15px;
 }
 
 .divider.strong {
     height: 2px;
-} 
+}
+
+/*************************
+* Typography
+*************************/
+
+.fs-13 {
+    font-size: 1.3rem;
+}
 
 /*************************
 * Overides
@@ -303,8 +334,14 @@ nav i.material-icons {
 }
 .btn-block{
     width: 100%;
+    padding: 0!important;
 }
 
+.btn-block input[type="submit"] {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
 .container {
     width: 95%;
@@ -315,18 +352,51 @@ nav i.material-icons {
     padding: 20px ;
 }
 
-.card h1 {
+.card h1,
+.card h4 {
     /*white-space: pre-line;    */
     /*margin-bottom: 5px;*/
-    display: inline-block;
+    /*display: inline-block;*/
     font-weight: bold;
-    margin-top: 0;
+    margin-top: 10px;
+    margin-bottom: 0!important;
+    color: #444;
 }
 
 .card p{
     color: #AAA;
     font-size: 1rem;
     margin-bottom: 15px;
+}
+
+.card.card-dashboard {
+    margin: 0;
+    padding: 0;
+}
+
+.card.card-dashboard i {
+    width: 100%;
+    font-size: 2.5rem;
+    line-height: 5.5rem;
+    text-align: center;
+}
+
+#menu-trigger {
+    position: fixed;
+    right: 4%;
+    top: 4%;
+    height: auto;
+    background-color: #4A090A;
+    color: #FFF;
+    padding: 8px 12px;
+    border-radius: 3px;
+    z-index: 10;
+    box-shadow: 0 0 2px #FFF;
+}
+
+#menu-trigger i {
+    height: 24px;
+    line-height: 1;
 }
 
 .side-nav {
@@ -412,6 +482,29 @@ nav i.material-icons {
 .collapsible-body > ul  li.active2:not(:last-child) > a:before {
     border-left: 1px solid #222;
     border-top: 1px solid #222;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding-left: 0;
+        /*overflow-x: hidden;*/
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .side-nav {
+        width: 300px;
+    }
+
+    .th-resized {
+        width: auto;
+    }
+
+    .mt-60-mobile {
+        margin-top: 60px;
+    }
 }
 
 /* ==========================================================================

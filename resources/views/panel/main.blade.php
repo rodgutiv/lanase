@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<header>
+	<header >
 		@yield('nav')
 	</header>
 
@@ -23,8 +23,9 @@
 	{!! Html::script('js/jquery-3.1.1.min.js') !!}
 	{!! Html::script('js/materialize.min.js') !!}
 	{!! Html::script('js/scripts.js') !!}
+	
 	<script type="text/javascript">
-		
+
 	  @if($errors)
 	    @foreach($errors->all() as $error)
 	      Materialize.toast('{{ $error }}', 4000, 'red white-text');
@@ -32,8 +33,8 @@
 	  @endif
 
 	</script>
-	<script type="text/javascript">
-		@yield('scripts')		
-	</script>
+
+	@yield('scripts')		
+	
 </body>
 </html>
