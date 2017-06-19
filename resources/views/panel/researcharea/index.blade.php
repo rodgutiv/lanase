@@ -92,7 +92,7 @@
 			$("#det-name").html(data.name);
 			$("#det-name-en").html(data.nameEn);
 			$("#det-projects").html(data.projects);
-			$("#det-image").html('<img src="{{ asset('images/researcharea') }} /'+ data.image +' " class="col m4 s12">');
+			$("#det-image").html('<img src="{{ asset('images/researcharea') }}/'+ data.image +' " class="col m4 s12">');
 			if(data.display){
 				$("#det-display").html("Si");
 			}else{

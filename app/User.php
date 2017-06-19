@@ -47,6 +47,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Specimen');
     }
 
+    public function rol() {
+        return $this->belongsTo('App\Rol', 'role');
+    }
+
     public function isAdmin() {
         if($this->role == 1){
             return true;

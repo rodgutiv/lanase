@@ -28,7 +28,25 @@
 	</div>
 	<p>GENERAL</p>
 	<li @if(str_contains(Route::getCurrentRoute()->getName(), 'dashboard')) class="active1" @endif><a href="{{ url('/panel/dashboard') }}"><i class="fa fa-circle-o-notch" aria-hidden="true"></i> Dashboard</a></li>
-	<li @if(str_contains(Route::getCurrentRoute()->getName(), 'users')) class="active1" @endif><a href="{{ route('users.index') }}"><i class="fa fa-user-o" aria-hidden="true"></i> Users</a></li>
+	{{-- <li @if(str_contains(Route::getCurrentRoute()->getName(), 'users')) class="active1" @endif><a href="{{ route('users.index') }}"><i class="fa fa-user-o" aria-hidden="true"></i> Users</a></li> --}}
+	<li class="no-padding">
+		<ul class="collapsible collapsible-accordion">
+			<li>
+			<a class="collapsible-header 
+				@if(str_contains(Route::getCurrentRoute()->getName(), ['users', 'roles']))
+				active 
+				@endif">
+				<i class="fa fa-user-o" aria-hidden="true"></i> Usuarios <i class="fa fa-angle-down right" aria-hidden="true"></i>
+			</a>
+				<div class="collapsible-body">
+					<ul>
+						<li @if(str_contains(Route::getCurrentRoute()->getName(), 'users')) class="active2" @endif><a href="{{ route('users.index') }}">Usuarios</a></li>
+						<li @if(str_contains(Route::getCurrentRoute()->getName(), 'roles')) class="active2" @endif><a href="{{ route('roles.index') }}">Roles</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</li>
 	<li class="no-padding">
 		<ul class="collapsible collapsible-accordion">
 			<li>
